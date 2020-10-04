@@ -13,9 +13,24 @@ public class WallChange : MonoBehaviour
         Switch = false;
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Gem")
+        {
+            Switch = true;
+        }
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Gem")
+        {
+            Switch = false;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
+        //var player = FindObjectsOfType<item>();
         if (Switch == false)
         {
             onWall.SetActive(true);
